@@ -9,6 +9,13 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
+document.getElementById("refresh-button").addEventListener("click", RefreshGame);
+
+function RefreshGame () {
+    location.reload();
+}
+
 console.clear();
 var PIECE_DIR_CALC = 0;
 var Utils = /** @class */ (function () {
