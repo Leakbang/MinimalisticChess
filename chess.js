@@ -1065,16 +1065,6 @@ var Control = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Control.prototype.autoplay = function () {
-        var input = this.game.turn === "WHITE" ? this.inputRandomWhite : this.inputRandomBlack;
-        if (!input.checked) {
-            setTimeout(this.autoplay.bind(this), this.speed);
-            return;
-        }
-        var position = this.game.randomMove();
-        this.view.handleTileClick(position);
-        setTimeout(this.autoplay.bind(this), this.speed);
-    };
     Control.prototype.updateViewPerspective = function () {
         this.view.setPerspective(this.inputPerspectiveBlack.checked ? "BLACK" : "WHITE");
     };
@@ -1097,4 +1087,3 @@ var perspective = "WHITE";
 var game = new Game(Utils.getInitialPieces(), initialPositions, initialTurn);
 var view = new View(document.getElementById("board"), game, perspective);
 var control = new Control(game, view);
-control.autoplay();
